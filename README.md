@@ -80,7 +80,7 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 <p>On your local machine, create another instance of Remote Desktop Connection, and Remote Deskop into "vm-client-1" using the public IP Address, and with your original admin user created in Azure but with domain credentials, mydomain.com\&ltyourcreatedcredentials&gt and password. Right-click the Windows start menu and select "System". Find and select "Rename this PC (advanced) on the right hand side > Select "Change" beside "To rename this computer or change its domain...". Under "Member of" select Domain, in the text field, type our created domain, "mydomain.com"</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 2a.PNG" width="60%" >
+<img src="images/Step 2a.png" width="60%" >
 </details> 
 
 > [!NOTE] 
