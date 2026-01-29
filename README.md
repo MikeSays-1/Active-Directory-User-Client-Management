@@ -57,7 +57,7 @@ With the domain environment already established, the project continues by expand
 Expand the “mydomain.com” domain. Right-click the domain and select New > Organizational Unit. </p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 1a.png" width="60%" >
+<img src="images/Step 1a.PNG" width="60%" >
 </details> 
 
 <p>In the Name field, type “_EMPLOYEES”. An underscore is used to differentiate this Organizational Unit from the default Windows containers within the domain tree. Repeat steps to create a new OU for "_ADMINS". Right-click our Admins folder and select New > User. Create user Jane Doe, with a username "jane_admin" and select Next, in the Password screen, unmark the checkbox for "User must change password at next logon", and mark "Password never expires check box", and choose a password. </p>
@@ -66,12 +66,12 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 > For the purposes of this lab, a simplified password policy is used to streamline setup and testing; however, these settings would not be recommended in a production environment.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 1b.png" width="60%" >
+<img src="images/Step 1b.PNG" width="60%" >
 </details> 
 <p>Even though Jane Doe was created in our _ADMINS folder, it does not automatically designate her as admin, we will need to add her to the built-in Domain Admins Security Group. Right-click user Jane Doe, find tab "Member of" and select "Add..", in the Object names field, type "Domain Admins" and select Check Names, once underlined, we can select OK. Keep the Remote Connection on.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 1c.png" width="60%" >
+<img src="images/Step 1c.PNG" width="60%" >
 </details> 
 
 <p>Our Jane Doe is now an Admin, log out of the "vm-dc-1" and log back in with Jane Doe's username, using domain credentials, mydomain.com\jane_admin and password.  We will continue using Jane Doe from now on.
@@ -80,7 +80,7 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 <p>On your local machine, create another instance of Remote Desktop Connection, and Remote Deskop into "vm-client-1" using the public IP Address, and with your original admin user created in Azure but with domain credentials, mydomain.com\&ltyourcreatedcredentials&gt and password. Right-click the Windows start menu and select "System". Find and select "Rename this PC (advanced) on the right hand side > Select "Change" beside "To rename this computer or change its domain...". Under "Member of" select Domain, in the text field, type our created domain, "mydomain.com"</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 2a.png" width="60%" >
+<img src="images/Step 2a.PNG" width="60%" >
 </details> 
 
 > [!NOTE] 
@@ -91,13 +91,13 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 <p>Back in our Domain Controller VM, reopen the Active Directory Users and Computers settings. Expand the domain tree and verify "vm-client-1" shows up in the Computers folder.</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 2b.png" width="60%" >
+<img src="images/Step 2b.PNG" width="60%" >
 </details> 
 
 <p> Right-click on our domain, and create a new OU "_CLIENTS". Drag "vm-client-1" from the Computers folder into the _CLIENTS folder. </p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 2c.png" width="60%" >
+<img src="images/Step 2c.PNG" width="60%" >
 </details> 
 
 > [!NOTE] 
@@ -109,7 +109,7 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 <p>Login to VM Client 1, with Jane Doe using domain credentials. Right-click the Windows start menu, and select "System". Find "Remote Desktop" on the right hand side. Under User accounts, select "Select users that can remotely..." > Select "Add..", in the Object names field, type "Domain Users" and select Check Names, once underlined, we can select OK.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 3a.png" width="60%" >
+<img src="images/Step 3a.PNG" width="60%" >
 </details>
 <p>Non-admin users can now log in. We will create those accounts in the next step. For now, sign out of "vm-client-1".
 
@@ -125,14 +125,14 @@ Expand the “mydomain.com” domain. Right-click the domain and select New > Or
 <p>Copy the folder "ad-script" from repository and place it on the desktop of "vm-dc-1". Open PowerShell ISE as Administrator, and open the AD PS Script file.</p>
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 4a.png" width="60%" >
+<img src="images/Step 4a.PNG" width="60%" >
 </details> 
 
 Note the line ```$PASSWORD_FOR_USERS   = "Password1"```
 this indicates all accounts will be created with the same password. Run the script and observe the accounts being generated. When the script finishes, open Active Directory Users and Computers and verify the new users appear in the _EMPLOYEES OU.
 
 <details><summary>See screenshots</summary>
-<img src="images/Step 4b.png" width="60%" >
+<img src="images/Step 4b.PNG" width="60%" >
 </details>
 
 <p>Lastly, let's test the new accounts, choose any username and note the password from the script. Remote Desktop back into "vm-client-1" using the newly created credentials and confirm the account works successfully!</p>
