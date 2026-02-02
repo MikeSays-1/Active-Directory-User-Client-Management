@@ -47,7 +47,7 @@ With the domain environment already established, the project continues by expand
 
 
 > [!NOTE] 
->This project builds upon a prior lab where the Azure environment, virtual machines, Active Directory Domain Services, and DNS configuration were initially deployed. **[On-premises Active Directory Deployed in the Cloud (Azure)](https://github.com/MikeSays-1/azure-config-and-ad-installation)**
+>This project builds upon a prior lab where the Azure environment, virtual machines, Active Directory Domain Services, and DNS configuration were initially deployed. **[Part 1: On-premises Active Directory Deployed in the Cloud (Azure)](https://github.com/MikeSays-1/azure-config-and-ad-installation)**
 
 
 <h2>Deployment and Configuration</h2> 
